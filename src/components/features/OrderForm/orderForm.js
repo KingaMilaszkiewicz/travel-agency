@@ -4,9 +4,9 @@ import OrderSummary from '../OrderSummary/OrderSummary.js';
 import PropTypes from 'prop-types';
 import pricing from '../../../data/pricing.json';
 import OrderOption from '../OrderOption/OrderOption.js';
-import { setOrderOption } from '../../../redux/orderRedux.js';
 
-const OrderForm = ({ tripCost, options }) => (
+
+const OrderForm = ({ tripCost, options, setOrderOption }) => (
   <Row>
     {pricing.map(option => (
       <Col md={4} key={option.id}>
@@ -23,6 +23,7 @@ const OrderForm = ({ tripCost, options }) => (
 OrderForm.propTypes = {
   tripCost: PropTypes.string,
   options: PropTypes.object,
+  setOrderOption: PropTypes.func,
 };
 
 export default OrderForm;
