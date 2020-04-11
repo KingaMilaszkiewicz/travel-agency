@@ -6,7 +6,7 @@ import Icon from '../../common/Icon/Icon';
 import classNames from 'classnames';
 
 const OrderOptionIcons = ({ values, required, currentValue, setOptionValue }) => (
-  <div className={styles.icon}>
+  <div className={classNames({ [styles.icon]: true, ['outerDiv']: true })}>
     {!required && (
       <div onClick={() => { setOptionValue(''); }}><Icon name='times-circle' />none</div>
     )}
