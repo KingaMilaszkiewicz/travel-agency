@@ -18,6 +18,11 @@
     background: darken($color-success, 5%);
   }
 
+  &:disabled {
+    background-color: gray;
+    cursor: default;
+  }
+
   &.danger {
     background: $color-primary;
     &:hover {
