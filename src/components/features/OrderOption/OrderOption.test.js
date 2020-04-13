@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import OrderOption from './OrderOption.js';
+import DatePicker from 'react-datepicker';
 
 describe('Component OrderOption', () => {
   it('should render correctly', () => { //PASS
@@ -190,12 +191,12 @@ for (let type in optionTypes) {
       }
 
       case 'date': {
-        it('contains DatePicker', () => { // FAIL
-          const dateClass = renderedSubcomponent.find('DatePicker');
+        it('contains DatePicker', () => { // PASS
+          const dateClass = renderedSubcomponent.find(DatePicker);
           expect(dateClass.length).toBe(1);
-        });
+        }); 
         it('should run setOrderOption function on change', () => { // FAIL
-          renderedSubcomponent.simulate('change', testValue);
+          renderedSubcomponent.find(DatePicker).simulate('change', testValue);
           expect(mockSetOrderOption).toBeCalledTimes(1);
           expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
         });
